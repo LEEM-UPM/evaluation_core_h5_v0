@@ -23,10 +23,13 @@ target_include_directories(stm32cubemx INTERFACE
 target_sources(stm32cubemx INTERFACE
     ../../Core/Src/main.c
     ../../Core/Src/gpio.c
+    ../../Core/Src/icache.c
     ../../Core/Src/memorymap.c
     ../../Core/Src/stm32h5xx_it.c
     ../../Core/Src/stm32h5xx_hal_msp.c
+    ../../Core/Src/stm32h5xx_hal_timebase_tim.c
     ../../Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_cortex.c
+    ../../Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_icache.c
     ../../Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rcc.c
     ../../Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_rcc_ex.c
     ../../Drivers/STM32H5xx_HAL_Driver/Src/stm32h5xx_hal_flash.c
