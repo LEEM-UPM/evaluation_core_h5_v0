@@ -42,6 +42,7 @@ add_subdirectory(cmake/stm32cubemx)
 
 # Add threadx sources
 add_subdirectory(middleware/threadx)
+add_subdirectory(middleware/filex)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -50,7 +51,7 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    app/hello_threadx.c
+    app/hello_filex.c
 )
 
 # Add include paths
@@ -67,5 +68,5 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
     threadx
-    # Add user defined libraries
+    filex
 )

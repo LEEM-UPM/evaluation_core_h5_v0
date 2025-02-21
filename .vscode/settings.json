@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "gpio.h": "c",
+        "icache.h": "c",
+        "cstdint": "cpp",
+        "fx_sram_driver.h": "c",
+        "stm32h5xx_hal_usart.h": "c",
+        "usart.h": "c",
+        "main.h": "c",
+        "stm32h5xx_hal.h": "c",
+        "stm32h5xx_hal_conf.h": "c"
+    }
+}

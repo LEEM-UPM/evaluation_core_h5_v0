@@ -26,8 +26,8 @@ int main(void)
 VOID tx_application_define(VOID *first_unused_memory)
 {
   tx_thread_create(&my_thread, "My Thread",
-  my_thread_entry, 0x1234, my_thread_stack, THREAD_STACK_SIZE,
-  3, 3, TX_NO_TIME_SLICE, TX_AUTO_START);
+                   my_thread_entry, 0x1234, my_thread_stack, THREAD_STACK_SIZE,
+                   3, 3, TX_NO_TIME_SLICE, TX_AUTO_START);
 }
 
 VOID my_thread_entry(ULONG initial_input)
