@@ -20,6 +20,7 @@
 #include "main.h"
 #include "icache.h"
 #include "memorymap.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
