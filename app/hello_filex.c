@@ -92,7 +92,7 @@ VOID my_thread_entry(ULONG thread_input)
             break;
         }
 
-        if (fx_file_write(&my_file, "JOSE\r\n", 5) != FX_SUCCESS)
+        if (fx_file_write(&my_file, "JOSE\r\n", 6) != FX_SUCCESS)
         {
             break;
         }
@@ -102,8 +102,8 @@ VOID my_thread_entry(ULONG thread_input)
             break;
         }
 
-        status = fx_file_read(&my_file, local_buffer, 5, &actual);
-        if ((status != FX_SUCCESS) || (actual != 5))
+        status = fx_file_read(&my_file, local_buffer, 6, &actual);
+        if ((status != FX_SUCCESS) || (actual != 6))
         {
             break;
         }
