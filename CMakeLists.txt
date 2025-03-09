@@ -43,6 +43,7 @@ add_subdirectory(cmake/stm32cubemx)
 # Add threadx sources
 add_subdirectory(middleware/threadx)
 add_subdirectory(middleware/filex)
+add_subdirectory(middleware/usbx)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -51,12 +52,15 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    app/hello_filex.c
+    app/hello_usbx_cdc_acm/hello_usbx_cdc_acm.c
+    app/hello_usbx_cdc_acm/ux_device_descriptors.c
+    app/hello_usbx_cdc_acm/ux_device_cdc_acm.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     app
+    app/hello_usbx_cdc_acm
 )
 
 # Add project symbols (macros)
@@ -69,4 +73,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
     threadx
     filex
+    usbx
 )
