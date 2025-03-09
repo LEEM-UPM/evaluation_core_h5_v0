@@ -9,16 +9,16 @@
 #define TOTAL_SECTORS     64U
 #define FX_SRAM_DISK_SIZE (SECTOR_SIZE * TOTAL_SECTORS)
 
-TX_THREAD my_thread;
+static TX_THREAD my_thread;
 UCHAR my_thread_stack[THREAD_STACK_SIZE];
-
-VOID my_thread_entry(ULONG thread_input);
 
 FX_MEDIA ram_disk;
 UCHAR media_memory[SECTOR_SIZE];
 UCHAR sram_disk_memory[FX_SRAM_DISK_SIZE];
 
 FX_FILE my_file;
+
+VOID my_thread_entry(ULONG thread_input);
 
 extern void SystemClock_Config(void);
 
@@ -41,9 +41,14 @@ int main(void)
 
 VOID tx_application_define(VOID *first_unused_memory)
 {
-    tx_thread_create(&my_thread, "My Thread",
+    TX_PARAMETER_NOT_USED(first_unused_memory);
+
+    if (tx_thread_create(&my_thread, "My Thread",
                      my_thread_entry, 0, my_thread_stack, THREAD_STACK_SIZE,
-                     1, 1, TX_NO_TIME_SLICE, TX_AUTO_START);
+                     1, 1, TX_NO_TIME_SLICE, TX_AUTO_START) != TX_SUCCESS)
+    {
+        return TX_THREAD_ERROR;
+    }
 
     fx_system_initialize();
 }
